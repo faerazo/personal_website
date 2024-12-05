@@ -1,3 +1,15 @@
+@keyframes cursorBlink {
+    0% {
+        cursor: url('cursorpython.png'), auto;
+    }
+    50% {
+        cursor: url('cursorpythonhover.png'), pointer;
+    }
+    100% {
+        cursor: url('cursorpython.png'), auto;
+    }
+}
+
 :root {
     --bg-color: #000000;
     --text-color: #ffffff;
@@ -35,6 +47,7 @@ body {
     font-style: normal;
     line-height: 1.6;
     padding: 2rem;
+    cursor: url('cursorpython.png'), auto;
 }
 
 .container {
@@ -137,6 +150,7 @@ p, .list-item p {
 
 .copy-button:hover {
     color: var(--link-hover-color);
+    animation: cursorBlink 1s infinite;
 }
 
 .material-symbols-outlined {
@@ -209,6 +223,7 @@ a {
 
 a:hover {
     color: var(--link-hover-color);
+    animation: cursorBlink 1s infinite;
 }
 
 .sub-text {

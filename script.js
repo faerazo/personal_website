@@ -6,8 +6,6 @@ class TextScramble {
             'nn.Linear',
             'nn.Conv2d',
             'nn.ReLU()',
-            'optimizer',
-            'criterion',
             'backward()',
             'forward()',
             'tensor()',
@@ -15,13 +13,7 @@ class TextScramble {
             'model(x)',
             'train()',
             'eval()',
-            'Dataset',
-            'DataLoader',
-            'requires_grad',
-            'zero_grad()',
-            'state_dict',
-            'load_state',
-            'Sequential'
+            'zero_grad()'
         ];
         this.update = this.update.bind(this);
     }

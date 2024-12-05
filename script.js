@@ -120,18 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const copyButton = document.querySelector('.copy-button');
     if (copyButton) {
-        copyButton.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText('hello@faerazo.com');
+        copyButton.addEventListener('click', function() {
+            const email = document.querySelector('.email').textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                const notification = document.getElementById('notification');
+                notification.classList.add('show');
                 
-                copyButton.classList.add('success');
-                
+                // Hide notification after 2 seconds
                 setTimeout(() => {
-                    copyButton.classList.remove('success');
-                }, 1000);
-            } catch (err) {
-                console.error('Failed to copy email:', err);
-            }
+                    notification.classList.remove('show');
+                }, 2000);
+            });
         });
     }
 }); 

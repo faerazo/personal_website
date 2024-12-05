@@ -69,9 +69,8 @@ header {
 }
 
 h1 {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
     font-style: normal;
     font-size: 64px;
     line-height: 70px;
@@ -140,13 +139,12 @@ p, .list-item p {
     color: var(--link-hover-color);
 }
 
-.copy-button svg {
-    width: 20px;
-    height: 20px;
-}
-
-.copy-button.success {
-    color: #4CAF50;
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
 }
 
 .numbered-list .list-item {

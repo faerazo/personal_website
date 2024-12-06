@@ -1,20 +1,7 @@
 class TextScramble {
     constructor(el) {
         this.el = el;
-        this.pytorchElements = [
-            'torch.nn',
-            'nn.Linear',
-            'nn.Conv2d',
-            'nn.ReLU()',
-            'backward()',
-            'forward()',
-            'tensor()',
-            'cuda()',
-            'model(x)',
-            'train()',
-            'eval()',
-            'zero_grad()'
-        ];
+        this.chars = '10';  // Only binary digits
         this.update = this.update.bind(this);
     }
 
@@ -70,46 +57,55 @@ class TextScramble {
     }
 
     randomChar() {
-        const element = this.pytorchElements[Math.floor(Math.random() * this.pytorchElements.length)];
-        const validChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._()0123456789';
-        return element[Math.floor(Math.random() * element.length)].match(/[a-zA-Z._()0-9]/) ? 
-               element[Math.floor(Math.random() * element.length)] : 
-               validChars[Math.floor(Math.random() * validChars.length)];
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
 }
 
 // Initialize the animation for all elements with scramble-text class
 document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.scramble-text');
+    // Add a class to elements we want to fade in later
+    const contentToFadeIn = document.querySelectorAll('p, .links, .social-links, .projects, .about-me, .number, .email-container');
     
-    elements.forEach(el => {
+    contentToFadeIn.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transition = 'opacity 1s ease-in';
+    });
+
+    // Get only h1 and h2 elements
+    const headings = document.querySelectorAll('h1, h2');
+    const animations = [];
+    
+    headings.forEach(el => {
         const fx = new TextScramble(el);
         const originalText = el.innerText;
         
         let initialText = '';
-        let elementIndex = 0;
-        
         for (let i = 0; i < originalText.length; i++) {
-            if (originalText[i] === ' ') {
-                initialText += ' ';
-                continue;
-            }
-            
-            const element = fx.pytorchElements[elementIndex % fx.pytorchElements.length];
-            initialText += element[i % element.length];
-            
-            if (i % element.length === element.length - 1) {
-                elementIndex++;
-            }
+            initialText += originalText[i] === ' ' ? ' ' : Math.random() < 0.5 ? '1' : '0';
         }
         
         el.innerText = initialText;
         
-        setTimeout(() => {
-            fx.setText(originalText);
-        }, 600 + Math.random() * 1500);
+        // Store each animation promise
+        const animationPromise = new Promise(resolve => {
+            setTimeout(() => {
+                fx.setText(originalText).then(resolve);
+            }, 600 + Math.random() * 1000);
+        });
+        
+        animations.push(animationPromise);
     });
 
+    // After all heading animations complete, show the rest of the content
+    Promise.all(animations).then(() => {
+        setTimeout(() => {
+            contentToFadeIn.forEach(el => {
+                el.style.opacity = '1';
+            });
+        }, 500); // Small delay before starting fade-in
+    });
+
+    // Email copy functionality
     const copyButton = document.querySelector('.copy-button');
     if (copyButton) {
         copyButton.addEventListener('click', function() {
@@ -118,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const notification = document.getElementById('notification');
                 notification.classList.add('show');
                 
-                // Hide notification after 2 seconds
                 setTimeout(() => {
                     notification.classList.remove('show');
                 }, 2000);

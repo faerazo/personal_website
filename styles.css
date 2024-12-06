@@ -11,8 +11,9 @@
 }
 
 :root {
-    --bg-color: #000000;
+    --bg-color: #04091b;
     --text-color: #ffffff;
+    --secondary-text-color: #ababac;
     --accent-color: #666666;
     --link-hover-color: #5465ff;
 }
@@ -126,7 +127,7 @@ p, .list-item p {
 }
 
 .email {
-    color: var(--accent-color);
+    color: var(--link-hover-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -182,7 +183,7 @@ p, .list-item p {
 }
 
 .number {
-    color: var(--accent-color);
+    color: var(--link-hover-color);
     min-width: 2rem;
     flex-shrink: 0;
     line-height: 35px;
@@ -208,6 +209,35 @@ p, .list-item p {
     text-decoration: underline;
 }
 
+.link-in-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: auto;
+    line-height: inherit;
+    text-decoration: underline;
+}
+
+.link-in-text:hover {
+    color: var(--link-hover-color);
+}
+
+.link-in-sub-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: auto;
+    line-height: inherit;
+    text-decoration: underline;
+    color: var(--secondary-text-color);
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.link-in-sub-text:hover {
+    color: var(--link-hover-color);
+}
+
 a {
     color: var(--text-color);
     text-decoration: none;
@@ -228,9 +258,11 @@ a:hover {
 
 .sub-text {
     margin-top: 0.5rem;
-    color: var(--text-color);
+    color: var(--secondary-text-color);
     opacity: 0.8;
     min-height: 35px;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 .italic {
@@ -238,6 +270,18 @@ a:hover {
     color: var(--accent-color);
     margin-top: 1rem;
     min-height: 35px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.list-item p.sub-text {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.list-item p.italic {
+    font-size: 18px;
+    line-height: 28px;
 }
 
 /* Responsive Design */

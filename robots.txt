@@ -2,9 +2,4 @@
 
 User-agent: *
 Allow: /
-Allow: /assets/images/
-Allow: /assets/css/
-Allow: /assets/js/
-
-# Sitemap
 Sitemap: https://faerazo.com/sitemap.xml 

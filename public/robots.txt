@@ -1,5 +1,4 @@
-# robots.txt for faerazo.com
-
 User-agent: *
 Allow: /
+
 Sitemap: https://faerazo.com/sitemap.xml 

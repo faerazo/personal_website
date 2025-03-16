@@ -7,7 +7,7 @@ const experiences = [
     company: "Computer Science and Engineering Department, GU-Chalmers 🇸🇪",
     period: "March 2025 - Present",
     achievements: [
-      "Developed a RAG-based chatbot for student queries regarding courses in the Computer Science and Engineering (CSE) Department, which has been subsequently selected for further development and deployment across the department.",
+      "Developed a RAG-based chatbot for student queries regarding courses in the Computer Science and Engineering (CSE) Department, which has been selected for further development and deployment across the department.",
     ]
   },
   {

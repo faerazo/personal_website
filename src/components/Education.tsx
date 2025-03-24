@@ -6,7 +6,6 @@ const education = [
     degree: "Master's in Data Science and AI",
     school: "Gothenburg University - Chalmers University of Technology",
     period: "2023-2025",
-    thesis: <React.Fragment>Currently working with the<span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} /><a href="https://ailab.bio/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 hover:underline">AI Lab for Molecular Engineering (AIME)</a> on Ternary Complex Prediction </React.Fragment>,
     courses: [
       "Design of AI Systems",
       "Natural Language Processing",
@@ -16,18 +15,10 @@ const education = [
       "Data Structures & Algorithms",
     ],
     publications: [
-      <React.Fragment key="pub1">
-        Enhancing PROTAC Ternary Complex Prediction with Ligand Information in AlphaFold 3
-        <span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} />
-        <a 
-          href="https://chemrxiv.org/engage/chemrxiv/article-details/67c68d98fa469535b9d93fe9" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-blue-400 hover:text-blue-300 hover:underline"
-        >
-          (See more on ChemRxiv)
-        </a>
-      </React.Fragment>
+      {
+        title: "Enhancing PROTAC Ternary Complex Prediction with Ligand Information in AlphaFold 3",
+        url: "https://chemrxiv.org/engage/chemrxiv/article-details/67c68d98fa469535b9d93fe9"
+      }
     ]
   },
   {
@@ -41,21 +32,14 @@ const education = [
       "Data Visualization"
     ],
     publications: [
-      <React.Fragment key="pub2">
-        Classification of Premium and Non-Premium Products using XGBoost and Logistic Regression
-        <span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} />
-        <a 
-          href="https://lup.lub.lu.se/student-papers/search/publication/9087706" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-blue-400 hover:text-blue-300 hover:underline"
-        >
-          (See more on LUP)
-        </a>
-      </React.Fragment>
+      {
+        title: "Classification of Premium and Non-Premium Products using XGBoost and Logistic Regression",
+        url: "https://lup.lub.lu.se/student-papers/search/publication/9087706"
+      }
     ]
   }
 ];
+
 
 export default function Education() {
   return (
@@ -75,24 +59,27 @@ export default function Education() {
                     <p className="text-blue-400 mb-2 font-semibold">{edu.school}</p>
                     <p className="text-gray-400 text-sm mb-2">{edu.period}</p>
                     
-                    {edu.thesis && (
-                      <div className="mb-4">
-                        <h4 className="text-white font-medium mb-2">Thesis</h4>
-                        <div className="text-gray-300 flex items-start">
-                          <span className="mr-2">•</span>
-                          {edu.thesis}
-                        </div>
-                      </div>
-                    )}
-                    
                     <h4 className="text-white font-medium mb-2">Publications</h4>
                     <ul className="space-y-2 mb-4">
-                      {edu.publications.map((publication, i) => (
-                        <li key={i} className="text-gray-300 flex items-start">
+                      {Array.isArray(edu.publications) ? (
+                        edu.publications.map((publication, i) => (
+                          <li key={i} className="text-gray-300 flex items-start">
+                            <span className="mr-2">•</span>
+                            {typeof publication === 'string' ? (
+                              publication
+                            ) : (
+                              <a href={publication.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+                                {publication.title}
+                              </a>
+                            )}
+                          </li>
+                        ))
+                      ) : (
+                        <li className="text-gray-300 flex items-start">
                           <span className="mr-2">•</span>
-                          {publication}
+                          {edu.publications}
                         </li>
-                      ))}
+                      )}
                     </ul>
                     
                     <h4 className="text-white font-medium mb-2">Relevant Coursework</h4>

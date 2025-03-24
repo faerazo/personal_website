@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, FileText } from 'lucide-react';
 
 const projects = [
   {
@@ -8,7 +8,8 @@ const projects = [
     image: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/AF_hero_2.jpg',
     tech: ['Python', 'PyTorch', 'Linux', 'Docker'],
     github: 'https://github.com/NilsDunlop/PROTACFold',
-    demo: 'https://chemrxiv.org/engage/chemrxiv/article-details/67c68d98fa469535b9d93fe9'
+    paper: 'https://chemrxiv.org/engage/chemrxiv/article-details/67c68d98fa469535b9d93fe9',
+    demo: null
   },
   {
     title: 'GuPT',
@@ -16,6 +17,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
     tech: ['Python', 'LangChain', 'Firecrawl', 'Gradio'],
     github: 'https://github.com/faerazo/GuPT',
+    paper: null,
     demo: 'https://huggingface.co/spaces/NilsDunlop/GuPT'
   },
   {
@@ -23,7 +25,9 @@ const projects = [
     description: 'Explored the generation of structurally similar molecules from five COX-2 inhibitors using a transformer architecture. Supervised by AstraZeneca.',
     image: 'https://www.thoughtco.com/thmb/B6RDHcUBbbUYXz9IRPjTWMmwtUc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/adenosine-triphosphate-molecule-545861163-58b5db205f9b586046e54553.jpg',
     tech: ['PyTorch', 'Pandas', 'Matplotlib', 'RDKit', 'Scikit-learn'],
-    github: 'https://github.com/NilsDunlop/Flip2Mol'
+    github: 'https://github.com/NilsDunlop/Flip2Mol',
+    paper: null,
+    demo: null
   }
 ];
 
@@ -55,6 +59,13 @@ export default function Projects() {
                     <Github className="w-5 h-5" />
                     <span>Code</span>
                   </a>
+                  {project.paper && (
+                    <a href={project.paper} target="_blank" rel="noopener noreferrer"
+                       className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                      <FileText className="w-5 h-5" />
+                      <span>Paper</span>
+                    </a>
+                  )}
                   {project.demo && (
                     <a href={project.demo} target="_blank" rel="noopener noreferrer"
                        className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">

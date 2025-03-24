@@ -7,11 +7,19 @@ const experiences = [
     company: "Computer Science and Engineering Department, GU-Chalmers 🇸🇪",
     period: "March 2025 - Present",
     achievements: [
-      "Developed a RAG-based chatbot for student queries regarding courses in the Computer Science and Engineering (CSE) Department, which has been selected for further development and deployment across the department.",
+      "Developed a RAG-based chatbot for student queries regarding courses and programs in the University of Gothenburg. The chatbot has been selected for further development and deployment across the CSE department.",
     ]
   },
   {
-    title: "Data Analyst-Data Engineer",
+    title: "Master Thesis Researcher",
+    company: "AI Lab for Molecular Engineering (AIME) 🇸🇪",
+    period: "January 2025 - Present",
+    achievements: [
+      "Conducting research on AI methods for Ternary Complex Prediction",
+    ]
+  },
+  {
+    title: "Data Analyst/Data Engineer",
     company: "Essity 🇸🇪",
     period: "June 2022 - Present",
     achievements: [
@@ -20,22 +28,9 @@ const experiences = [
   {
     title: "Master Thesis Student - Data Science Department",
     company: "TetraPak 🇸🇪",
-    period: "April 2022 - June 2022",
-    achievements:
-      [
-        <React.Fragment key="pub2">
-          Classification of Premium and Non-Premium Products using XGBoost and Logistic Regression
-          <span dangerouslySetInnerHTML={{ __html: "&nbsp;" }} />
-          <a 
-            href="https://lup.lub.lu.se/student-papers/search/publication/9087706" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 hover:underline"
-          >
-            (See more on LUP)
-          </a>
-        </React.Fragment>
-      ]
+    period: "April 2022 - June 2022", 
+    achievements: [
+    ]
   }
 ];
 

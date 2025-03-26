@@ -28,7 +28,7 @@ export default function Experience() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12">
           <div className="md:col-span-3">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">Past Life</h2>
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Finance Experience</h2>
             <div className="space-y-12">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative pl-8 border-l-2 border-blue-500">
